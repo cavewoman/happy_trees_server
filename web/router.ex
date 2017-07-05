@@ -22,7 +22,9 @@ defmodule HappyTreesServer.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", HappyTreesServer do
-  #   pipe_through :api
-  # end
+  scope "/api", HappyTreesServer do
+    pipe_through :api
+
+    get "/supplies", API.SupplyController, :index, as: :api_supply
+  end
 end

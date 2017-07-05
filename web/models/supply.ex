@@ -1,6 +1,7 @@
 defmodule HappyTreesServer.Supply do
   use HappyTreesServer.Web, :model
 
+  @derive {Poison.Encoder, except: [:__meta__] }
   schema "supplies" do
     field :name, :string
     field :type, :string
@@ -17,5 +18,6 @@ defmodule HappyTreesServer.Supply do
     struct
     |> cast(params, [:name, :type, :amount, :supply_key])
     |> validate_required([:name, :type, :amount, :supply_key])
+    |> unique_constraint(:supply_key)
   end
 end

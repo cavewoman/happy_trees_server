@@ -11,5 +11,6 @@ defmodule HappyTreesServer.Repo.Migrations.CreateSupply do
       timestamps()
     end
 
+    create index(:supplies, [:supply_key])
   end
 end

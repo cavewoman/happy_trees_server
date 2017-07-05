@@ -2,8 +2,6 @@ defmodule HappyTreesServer.API.SupplyControllerTest do
   use HappyTreesServer.ConnCase
   import HappyTreesServer.Factory
 
-  alias HappyTreesServer.Supply
-
   test "GET supplies", %{conn: conn} do
     supply1 = insert(:supply)
     supply2 = insert(:supply)

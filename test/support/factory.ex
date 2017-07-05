@@ -1,6 +1,23 @@
 defmodule HappyTreesServer.Factory do
   use ExMachina.Ecto, repo: HappyTreesServer.Repo
   alias HappyTreesServer.Supply
+  alias HappyTreesServer.Favorite
+
+  def favorite_factory do
+    %Favorite{
+      title: sequence(:title, &"favorite_title_#{&1}"),
+      url: sequence(:url, &"website_#{&1}.com"),
+      favorite_key: sequence(:favorite_key, &"favorite_key_#{&1}")
+    }
+  end
+
+  def favorite_factory(attrs) do
+    %Favorite{
+      title: attrs[:title] || sequence(:title, &"favorite_title_#{&1}"),
+      url: attrs[:url] || sequence(:url, &"website_#{&1}.com"),
+      favorite_key: attrs[:favorite_key] || sequence(:favorite_key, &"favorite_key_#{&1}")
+    }
+  end
 
   def supply_factory do
     types = ["Oil Paint", "Acrylic Paint", "Brush", "Canvas", "Medium"]

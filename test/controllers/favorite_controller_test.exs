@@ -3,6 +3,7 @@ defmodule HappyTreesServer.FavoriteControllerTest do
 
   alias HappyTreesServer.Favorite
   @valid_attrs %{favorite_key: "some content", title: "some content", url: "some content"}
+  @valid_create_attrs %{title: "some content", url: "some content"}
   @invalid_attrs %{}
 
   test "lists all entries on index", %{conn: conn} do
@@ -16,9 +17,9 @@ defmodule HappyTreesServer.FavoriteControllerTest do
   end
 
   test "creates resource and redirects when data is valid", %{conn: conn} do
-    conn = post conn, favorite_path(conn, :create), favorite: @valid_attrs
+    conn = post conn, favorite_path(conn, :create), favorite: @valid_create_attrs
     assert redirected_to(conn) == favorite_path(conn, :index)
-    assert Repo.get_by(Favorite, @valid_attrs)
+    assert Repo.get_by(Favorite, @valid_create_attrs)
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do

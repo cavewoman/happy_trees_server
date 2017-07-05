@@ -14,7 +14,8 @@ defmodule HappyTreesServer.FavoriteController do
   end
 
   def create(conn, %{"favorite" => favorite_params}) do
-    changeset = Favorite.changeset(%Favorite{}, favorite_params)
+    uuid = Ecto.UUID.generate()
+    changeset = Favorite.changeset(%Favorite{}, Map.merge(favorite_params, %{"favorite_key" => uuid}))
 
     case Repo.insert(changeset) do
       {:ok, _favorite} ->

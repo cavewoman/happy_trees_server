@@ -26,5 +26,7 @@ defmodule HappyTreesServer.Router do
     pipe_through :api
 
     get "/supplies", API.SupplyController, :index, as: :api_supply
+    get "/favorites", API.FavoriteController, :index, as: :api_favorite
+
   end
 end

@@ -1,6 +1,7 @@
 defmodule HappyTreesServer.Favorite do
   use HappyTreesServer.Web, :model
 
+  @derive {Poison.Encoder, except: [:__meta__] }
   schema "favorites" do
     field :title, :string
     field :url, :string

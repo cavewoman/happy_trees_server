@@ -1,0 +1,30 @@
+<h2>Listing favorites</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Url</th>
+      <th>Favorite key</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for favorite <- @favorites do %>
+    <tr>
+      <td><%= favorite.title %></td>
+      <td><%= favorite.url %></td>
+      <td><%= favorite.favorite_key %></td>
+
+      <td class="text-right action-buttons">
+        <%= link "Show", to: favorite_path(@conn, :show, favorite), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: favorite_path(@conn, :edit, favorite), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: favorite_path(@conn, :delete, favorite), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New favorite", to: favorite_path(@conn, :new) %>

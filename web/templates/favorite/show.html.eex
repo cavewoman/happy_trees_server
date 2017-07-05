@@ -1,0 +1,23 @@
+<h2>Show favorite</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @favorite.title %>
+  </li>
+
+  <li>
+    <strong>Url:</strong>
+    <%= @favorite.url %>
+  </li>
+
+  <li>
+    <strong>Favorite key:</strong>
+    <%= @favorite.favorite_key %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: favorite_path(@conn, :edit, @favorite) %>
+<%= link "Back", to: favorite_path(@conn, :index) %>

@@ -1,0 +1,6 @@
+<h2>Edit supply</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: supply_path(@conn, :update, @supply) %>
+
+<%= link "Back", to: supply_path(@conn, :index) %>

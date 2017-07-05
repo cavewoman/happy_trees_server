@@ -1,0 +1,30 @@
+<h2>Listing supplies</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Amount</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for supply <- @supplies do %>
+    <tr>
+      <td><%= supply.name %></td>
+      <td><%= supply.type %></td>
+      <td><%= supply.amount %></td>
+
+      <td class="text-right action-buttons">
+        <%= link "Show", to: supply_path(@conn, :show, supply), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: supply_path(@conn, :edit, supply), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: supply_path(@conn, :delete, supply), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New supply", to: supply_path(@conn, :new) %>

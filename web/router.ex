@@ -17,6 +17,8 @@ defmodule HappyTreesServer.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/favorites", FavoriteController
+    resources "/supplies", SupplyController
   end
 
   # Other scopes may use custom stacks.

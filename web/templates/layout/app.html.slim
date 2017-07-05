@@ -34,19 +34,19 @@ html lang="en"
               /   li =link "sign in", to: session_path(@conn, :new)
 
     .container
-      =if info = get_flash(@conn, :info) do
-        p.alert.alert-info role="alert"
-          = info
-      =if error = get_flash(@conn, :error) do
-        p.alert.alert-danger role="alert"
-          = error
+      /=if info = get_flash(@conn, :info) do
+        /p.alert.alert-info role="alert"
+          /= info
+      /=if error = get_flash(@conn, :error) do
+        /p.alert.alert-danger role="alert"
+          /= error
 
       main role="main"
-        hr
-        #js-demo Uh oh, this text should have been replaced by happy_trees_server.js.
-        hr
-        = render HappyTreesServer.SharedView, "_bootstrap_modal_demo.html"
-        hr
+        /hr
+        /#js-demo Uh oh, this text should have been replaced by happy_trees_server.js.
+        /hr
+        /= render HappyTreesServer.SharedView, "_bootstrap_modal_demo.html"
+        /hr
         = render @view_module, @view_template, assigns
 
     script src="#{static_path(@conn, "/js/app.js")}"

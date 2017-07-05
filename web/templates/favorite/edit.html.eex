@@ -1,0 +1,6 @@
+<h2>Edit favorite</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: favorite_path(@conn, :update, @favorite) %>
+
+<%= link "Back", to: favorite_path(@conn, :index) %>

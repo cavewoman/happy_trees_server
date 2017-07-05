@@ -1,0 +1,23 @@
+<h2>Show supply</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @supply.name %>
+  </li>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @supply.type %>
+  </li>
+
+  <li>
+    <strong>Amount:</strong>
+    <%= @supply.amount %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: supply_path(@conn, :edit, @supply) %>
+<%= link "Back", to: supply_path(@conn, :index) %>

@@ -10,5 +10,6 @@ defmodule HappyTreesServer.Repo.Migrations.CreateFavorite do
       timestamps()
     end
 
+    create index(:favorites, [:favorite_key])
   end
 end

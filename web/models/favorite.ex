@@ -17,5 +17,6 @@ defmodule HappyTreesServer.Favorite do
     struct
     |> cast(params, [:title, :url, :favorite_key])
     |> validate_required([:title, :url, :favorite_key])
+    |> unique_constraint(:favorite_key)
   end
 end

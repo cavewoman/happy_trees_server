@@ -28,6 +28,7 @@ defmodule HappyTreesServer.Router do
     get "/supplies", API.SupplyController, :index, as: :api_supply
     post "/sync_supplies", API.SupplyController, :update, as: :api_supply
     get "/favorites", API.FavoriteController, :index, as: :api_favorite
+    post "/sync_favorites", API.FavoriteController, :update, as: :api_favorite
 
   end
 end

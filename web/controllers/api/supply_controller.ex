@@ -9,15 +9,13 @@ defmodule HappyTreesServer.API.SupplyController do
   end
 
   def update(conn, %{"supplies" => supplies}) do
-    IO.puts("SUPPLIES")
-    IO.inspect(supplies)
     {status, supplies} = update_or_create_supplies(supplies, {:ok, []})
     json conn, %{status: status, supplies: supplies}
   end
 
   def update_or_create_supplies(_, {:error, message}), do: {:error, message}
   def update_or_create_supplies([], status), do: status
-  def update_or_create_supplies([head| tail], {status, supplies}) do
+  def update_or_create_supplies([head| tail], {_, supplies}) do
     supply = Repo.get_by(Supply, supply_key: head["supply_key"])
 
     if (supply) do

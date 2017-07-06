@@ -19,6 +19,7 @@ defmodule HappyTreesServer.Router do
     get "/", PageController, :index
     resources "/favorites", FavoriteController
     resources "/supplies", SupplyController
+    resources "/paintings", PaintingController
   end
 
   # Other scopes may use custom stacks.
@@ -27,8 +28,12 @@ defmodule HappyTreesServer.Router do
 
     get "/supplies", API.SupplyController, :index, as: :api_supply
     post "/sync_supplies", API.SupplyController, :update, as: :api_supply
+
     get "/favorites", API.FavoriteController, :index, as: :api_favorite
     post "/sync_favorites", API.FavoriteController, :update, as: :api_favorite
+
+    get "/paintings", API.PaintingController, :index, as: :api_painting
+    post "/sync_paintings", API.PaintingController, :update, as: :api_painting
 
   end
 end

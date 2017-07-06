@@ -15,7 +15,7 @@ defmodule HappyTreesServer.API.FavoriteController do
 
   def update_or_create_favorites(_, {:error, message}), do: {:error, message}
   def update_or_create_favorites([], status), do: status
-  def update_or_create_favorites([head| tail], {status, favorites}) do
+  def update_or_create_favorites([head| tail], {_, favorites}) do
     favorite = Repo.get_by(Favorite, favorite_key: head["favorite_key"])
 
     if (favorite) do

@@ -1,3 +1,7 @@
 .jumbotron
   h2
     =gettext "Welcome to Happy Trees!"
+.main-page-button-container
+  =link "Supplies", to: supply_path(@conn, :index), class: "btn btn-default main-page-btn"
+  =link "Favorites", to: favorite_path(@conn, :index), class: "btn btn-default main-page-btn"
+  =link "Paintings", to: painting_path(@conn, :index), class: "btn btn-default main-page-btn"

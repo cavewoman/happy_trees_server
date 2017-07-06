@@ -2,6 +2,7 @@ defmodule HappyTreesServer.Factory do
   use ExMachina.Ecto, repo: HappyTreesServer.Repo
   alias HappyTreesServer.Supply
   alias HappyTreesServer.Favorite
+  alias HappyTreesServer.Painting
 
   def favorite_factory do
     %Favorite{
@@ -38,6 +39,22 @@ defmodule HappyTreesServer.Factory do
       type: attrs[:type] || Enum.random(types),
       amount: attrs[:amount] || Enum.random(amounts),
       supply_key: attrs[:supply_key] || sequence(:supply_key, &"supply_key_#{&1}")
+    }
+  end
+
+  def painting_factory do
+    %Painting{
+      title: sequence(:title, &"painting_title_#{&1}"),
+      date_painted: Ecto.DateTime.utc(),
+      painting_key: sequence(:painting_key, &"painting_key_#{&1}")
+    }
+  end
+
+  def painting_factory(attrs) do
+    %Painting{
+      title: attrs[:title] || sequence(:title, &"painting_title_#{&1}"),
+      date_painted: attrs[:date_painted] || Ecto.DateTime.utc(),
+      painting_key: attrs[:painting_key] || sequence(:painting_key, &"painting_key_#{&1}")
     }
   end
 end

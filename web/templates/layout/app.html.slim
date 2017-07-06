@@ -23,12 +23,15 @@ html lang="en"
           .collapse.navbar-collapse
             ul.nav.navbar-nav.navbar-right
               / = if @current_user do
-              /   li.dropdown
-              /     a.dropdown-toggle href="#" data-toggle="dropdown"
-              /       = @current_user.email
-              /       b.caret
-              /       ul.dropdown-menu
-              /         li =link "Dashboard", to: "#"
+                 li.dropdown
+                   a.dropdown-toggle href="#" data-toggle="dropdown"
+                     = "Navigation "
+                     b.caret
+                     ul.dropdown-menu
+                       li =link "Home", to: "/"
+                       li =link "Supplies", to: supply_path(@conn, :index)
+                       li =link "Favorites", to: favorite_path(@conn, :index)
+                       li =link "Paintings", to: painting_path(@conn, :index)
               /         li =link "Sign Out", to: session_path(@conn, :delete), method: :delete
               / - else
               /   li =link "sign in", to: session_path(@conn, :new)

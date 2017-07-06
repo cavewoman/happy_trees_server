@@ -1,0 +1,23 @@
+<h2>Show painting</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @painting.title %>
+  </li>
+
+  <li>
+    <strong>Date painted:</strong>
+    <%= @painting.date_painted %>
+  </li>
+
+  <li>
+    <strong>Painting key:</strong>
+    <%= @painting.painting_key %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: painting_path(@conn, :edit, @painting) %>
+<%= link "Back", to: painting_path(@conn, :index) %>

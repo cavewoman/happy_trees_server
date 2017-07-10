@@ -8,7 +8,8 @@ defmodule HappyTreesServer.Factory do
     %Favorite{
       title: sequence(:title, &"favorite_title_#{&1}"),
       url: sequence(:url, &"website_#{&1}.com"),
-      favorite_key: sequence(:favorite_key, &"favorite_key_#{&1}")
+      favorite_key: sequence(:favorite_key, &"favorite_key_#{&1}"),
+      supply_names: [sequence(:supply_names, &"supply_name_#{&1}")]
     }
   end
 
@@ -16,7 +17,9 @@ defmodule HappyTreesServer.Factory do
     %Favorite{
       title: attrs[:title] || sequence(:title, &"favorite_title_#{&1}"),
       url: attrs[:url] || sequence(:url, &"website_#{&1}.com"),
-      favorite_key: attrs[:favorite_key] || sequence(:favorite_key, &"favorite_key_#{&1}")
+      favorite_key: attrs[:favorite_key] || sequence(:favorite_key, &"favorite_key_#{&1}"),
+      supply_names: attrs[:supply_names] || [sequence(:supply_names, &"supply_name_#{&1}")]
+
     }
   end
 

@@ -9,6 +9,8 @@ defmodule HappyTreesServer.API.FavoriteController do
   end
 
   def update(conn, %{"favorites" => favorites}) do
+    IO.puts("FAVORITESX")
+    IO.inspect(favorites)
     {status, favorites} = update_or_create_favorites(favorites, {:ok, []})
     json conn, %{status: status, favorites: favorites}
   end
